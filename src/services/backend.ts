@@ -23,7 +23,13 @@ class Backend {
       // });
       // return await this.handleResponse(response);
 
-      return localStorage.getItem("user");
+      // We simulate backend delay
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          const data = localStorage.getItem("user") as string;
+          resolve(JSON.parse(data));
+        }, 1000);
+      });
     } catch (error: any) {
       console.error(`Error: ${error.message}`);
     }
@@ -40,7 +46,13 @@ class Backend {
       // });
       // return await this.handleResponse(response);
 
-      localStorage.setItem("user", data);
+      // We simulate backend delay
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          localStorage.setItem("user", JSON.stringify(data));
+          resolve(data);
+        }, 1000);
+      });
     } catch (error: any) {
       console.error(`Error: ${error.message}`);
     }
