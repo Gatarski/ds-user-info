@@ -12,4 +12,19 @@
     flex-direction: column;
     gap: 12px;
   }
+
+  img {
+    max-width: 300px;
+    max-height: 300px;
+  }
+
+  @media (max-width: 1000px) {
+    display: block;
+    align-items: center;
+
+    img {
+      max-width: 200px;
+      max-height: 200px;
+    }
+  }
 }

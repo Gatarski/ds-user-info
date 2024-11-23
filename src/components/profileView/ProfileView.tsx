@@ -20,24 +20,27 @@ export const ProfileView = ({ data }: ProfileViewProps) => {
   return (
     <div className={styles["profile-view"]}>
       <div className={styles["profile-view__element"]}>
+        <h2>Your user data</h2>
+        <Divider />
         <ImageContent imageString={image} />
         <TextContent
           label={"Name"}
           content={`${firstName} ${lastName ? lastName : ""}`}
         />
+        <Divider />
       </div>
       <div className={styles["profile-view__element"]}>
         {DATA_SCHEMA.map(({ label, textContent }, index) => {
           const isLastElement = index === DATA_SCHEMA.length - 1;
           return (
-            <>
+            <div key={index}>
               <TextContent
                 label={label}
                 content={`${textContent ? textContent : "-"}`}
-                height={`${label === "About you" ? "75px" : "auto"}`}
+                height={`${label === "About you" ? "115px" : "auto"}`}
               />
               {!isLastElement && <Divider />}
-            </>
+            </div>
           );
         })}
       </div>

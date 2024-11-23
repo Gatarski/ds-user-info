@@ -30,7 +30,7 @@ export const Header = ({ navItems }: HeaderProps) => {
           ))}
         </ul>
       </nav>
-      <div>select language</div>
+      <div></div>
     </header>
   );
 };

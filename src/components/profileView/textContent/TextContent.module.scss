@@ -1,0 +1,16 @@
+.text-content {
+  max-width: 350px;
+
+  &__label {
+    color: $black;
+    text-align: left;
+    font-size: 12px;
+  }
+
+  &__card {
+    background-color: $light-gray !important;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 12px;
+  }
+}

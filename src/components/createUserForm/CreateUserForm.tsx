@@ -65,7 +65,10 @@ const validationSchema = Yup.object({
     .required("Phone is required")
     .min(3, "Phone must be at least 3 numbers")
     .max(15, "Phone can be max 15 numbers"),
-  date: Yup.date().required("Birthday is required"),
+  date: Yup.date()
+    .required("Birthday is required")
+    .max(new Date(), "Birthdate cannot be in the future")
+    .min(new Date("1900-01-01"), "Birthdate cannot be before January 1, 1900"),
   about: Yup.string().max(200, "About can be max 200 characters"),
 });
 
@@ -74,7 +77,7 @@ const initialValues: FormValues = {
   lastName: "",
   email: "",
   phone: "",
-  date: undefined,
+  date: "",
   about: "",
   image: undefined,
 };
@@ -103,7 +106,7 @@ export const CreateUserForm = () => {
           <CircularProgress />
         ) : (
           <Form className={styles["create-user-form"]}>
-            <h1>Please fill this form to create user.</h1>
+            <h2>Please fill this form to create user.</h2>
             {INPUTS_SCHEMA.map(({ name, label, type, placeholder }, index) => {
               const nameAsKey = name as keyof FormValues;
               return (
@@ -114,7 +117,7 @@ export const CreateUserForm = () => {
                   name={name}
                   label={label}
                   as={TextField}
-                  error={touched[nameAsKey] && errors[nameAsKey]}
+                  error={touched[nameAsKey] && Boolean(errors[nameAsKey])}
                   helperText={touched[nameAsKey] && errors[nameAsKey]}
                   type={type}
                   slotProps={{
@@ -134,7 +137,7 @@ export const CreateUserForm = () => {
               multiline
               type={"string"}
               rows={4}
-              error={touched.about && errors.about}
+              error={touched.about && Boolean(errors.about)}
               helperText={touched.about && errors.about}
               slotProps={{
                 inputLabel: {

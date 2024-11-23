@@ -20,7 +20,7 @@ export const Profile = () => {
 
     fetchUser();
   }, []);
-  console.log(user, "user");
+
   return (
     <Card>
       {isLoading ? (

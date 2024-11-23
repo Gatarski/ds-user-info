@@ -9,7 +9,7 @@ export const ImageContent = ({ imageString, className }: ImageContentProps) => {
   const avatar = imageString ? imageString : userPicture;
   return (
     <div className={className}>
-      <img src={avatar} alt="Avatar user image" width={300} height={300} />
+      <img src={avatar} alt="Avatar user image" />
     </div>
   );
 };

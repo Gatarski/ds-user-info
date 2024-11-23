@@ -50,7 +50,7 @@ class Backend {
       // return await this.handleResponse(response);
 
       // We simulate backend delay
-      console.log(data, 'saved DATA')
+
       return new Promise((resolve, reject) => {
         setTimeout(() => {
           localStorage.setItem("user", JSON.stringify(data));

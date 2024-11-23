@@ -1,4 +1,4 @@
-export type PageComponentName = "Create User" | "Profile" | "About" | "Contact"
+export type PageComponentName = "Create User" | "Profile" | "About" | "Contact";
 
 export type NavigationItem = { path: string; name: PageComponentName };
 
@@ -7,7 +7,7 @@ export type FormValues = {
   lastName: string;
   email: string;
   phone: number | string;
-  date?: Date;
+  date: Date | string;
   about?: string;
-  image?: any;
+  image?: string;
 };

@@ -4,6 +4,8 @@
   justify-content: space-between;
   align-items: center;
   background-color: $dark-blue;
+  z-index: 1;
+  font-size: 30px;
 
   &__nav-list {
     display: flex;
@@ -14,7 +16,6 @@
 
   &__nav-link {
     text-decoration: none;
-    font-size: 30px;
     color: $white;
     transition: color 0.3s ease;
 
@@ -25,7 +26,6 @@
 
   &__nav-link--active {
     text-decoration: none;
-    font-size: 30px;
     transition: color 0.3s ease;
     color: #1abc9c;
     font-weight: bold;
@@ -33,5 +33,17 @@
     &:hover {
       color: $blue;
     }
+  }
+
+  @media (max-width: 1000px) {
+    font-size: 20px;
+
+    img {
+      display: none;
+    }
+  }
+
+  @media (max-width: 600px) {
+    font-size: 12px;
   }
 }
