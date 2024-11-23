@@ -12,13 +12,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { InfoDialog } from "../InfoDialog/InfoDialog";
 import { useModalVisibility, isAvatarImageNotCorrect } from "../../utils/utils";
-
-type FormValues = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  phone: number;
-};
+import { FormValues } from "../../types/types";
 
 type InputSchema = {
   name: string;
@@ -58,24 +52,31 @@ const INPUTS_SCHEMA: InputSchema[] = [
 const validationSchema = Yup.object({
   firstName: Yup.string()
     .required("First Name is required")
-    .min(2, "First Name must be at least 2 characters"),
+    .min(2, "First Name must be at least 2 characters")
+    .max(40, "First Name can be max 40 characters"),
+  lastName: Yup.string()
+    .min(2, "Last Name must be at least 2 characters")
+    .max(40, "Last Name can be max 40 characters"),
   email: Yup.string()
     .email("Invalid email address")
-    .required("Email is required"),
-  phone: Yup.number()
+    .required("Email is required")
+    .max(50, "Email can be max 50 characters"),
+  phone: Yup.string()
     .required("Phone is required")
-    .min(2, "Phone must be at least 5 numbers"),
+    .min(3, "Phone must be at least 3 numbers")
+    .max(15, "Phone can be max 15 numbers"),
   date: Yup.date().required("Birthday is required"),
+  about: Yup.string().max(200, "About can be max 200 characters"),
 });
 
-const initialValues = {
+const initialValues: FormValues = {
   firstName: "",
   lastName: "",
   email: "",
   phone: "",
-  date: null,
+  date: undefined,
   about: "",
-  image: null,
+  image: undefined,
 };
 
 export const CreateUserForm = () => {
@@ -83,7 +84,7 @@ export const CreateUserForm = () => {
   const [avatarPreview, setAvatarPreview] = useState<string | null>(null);
   const { isVisible, hideModal, showModal } = useModalVisibility();
 
-  const submitForm = async (values: any) => {
+  const submitForm = async (values: FormValues) => {
     const data = await backend.createUser(values);
 
     if (data) {
@@ -103,10 +104,11 @@ export const CreateUserForm = () => {
         ) : (
           <Form className={styles["create-user-form"]}>
             <h1>Please fill this form to create user.</h1>
-            {INPUTS_SCHEMA.map(({ name, label, type, placeholder }) => {
+            {INPUTS_SCHEMA.map(({ name, label, type, placeholder }, index) => {
               const nameAsKey = name as keyof FormValues;
               return (
                 <Field
+                  key={index}
                   placeholder={placeholder}
                   fullWidth
                   name={name}
@@ -115,24 +117,29 @@ export const CreateUserForm = () => {
                   error={touched[nameAsKey] && errors[nameAsKey]}
                   helperText={touched[nameAsKey] && errors[nameAsKey]}
                   type={type}
-                  InputLabelProps={{
-                    shrink: true,
+                  slotProps={{
+                    inputLabel: {
+                      shrink: true,
+                    },
                   }}
                 />
               );
             })}
             <Field
               placeholder="e.g.: My name is John Doe. I like trains."
-              component={TextField}
+              as={TextField}
               name="about"
               label="About"
               fullWidth
               multiline
+              type={"string"}
               rows={4}
-              error={touched.about && Boolean(errors.about)}
+              error={touched.about && errors.about}
               helperText={touched.about && errors.about}
-              InputLabelProps={{
-                shrink: true,
+              slotProps={{
+                inputLabel: {
+                  shrink: true,
+                },
               }}
             />
             <FormControl fullWidth>
@@ -149,11 +156,14 @@ export const CreateUserForm = () => {
                     showModal();
                     return;
                   }
-                  setFieldValue("image", file);
+
                   if (file) {
                     const reader = new FileReader();
-                    reader.onload = () =>
-                      setAvatarPreview(reader.result as string);
+                    reader.onloadend = () => {
+                      const base64String = reader.result as string;
+                      setFieldValue("image", base64String);
+                      setAvatarPreview(base64String);
+                    };
                     reader.readAsDataURL(file);
                   }
                 }}

@@ -11,21 +11,17 @@ export const Header = ({ navItems }: HeaderProps) => {
   return (
     <header className={styles.header}>
       <NavLink to="/">
-        <img
-          src={logoImage}
-          alt="Page logo image"
-          height={120}
-          width={120}
-        ></img>
+        <img src={logoImage} alt="Page logo image" height={120} width={120} />
       </NavLink>
       <nav>
-        <ul className={styles["header--nav-list"]}>
-          {navItems.map(({ path, name }) => (
+        <ul className={styles["header__nav-list"]}>
+          {navItems.map(({ path, name }, index) => (
             <NavLink
+              key={index}
               className={({ isActive }) =>
                 isActive
-                  ? styles["header--nav-active-link"]
-                  : styles["header--nav-link"]
+                  ? styles["header__nav-link--active"]
+                  : styles["header__nav-link"]
               }
               to={path}
             >

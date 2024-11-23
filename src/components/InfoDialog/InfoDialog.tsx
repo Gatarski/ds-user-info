@@ -4,7 +4,7 @@ import {
   DialogContent,
   DialogTitle,
   Button,
-  Divider
+  Divider,
 } from "@mui/material";
 import styles from "./InfoDialog.module.scss";
 
@@ -23,14 +23,21 @@ export const InfoDialog = ({
 }: InfoDialogProps) => {
   return (
     <Dialog open={isOpen} onClose={hideDialog}>
-      <DialogTitle className={styles["info-dialog--header"]}>{headerText}</DialogTitle>
+      <DialogTitle className={styles["info-dialog__header"]}>
+        {headerText}
+      </DialogTitle>
       <Divider />
       <DialogContent>
         <p>{contentText}</p>
       </DialogContent>
       <Divider />
       <DialogActions>
-        <Button className={styles["info-dialog--button"]} onClick={hideDialog} color="primary" variant="contained">
+        <Button
+          className={styles["info-dialog__button"]}
+          onClick={hideDialog}
+          color="primary"
+          variant="contained"
+        >
           Close
         </Button>
       </DialogActions>

@@ -1,24 +1,20 @@
 import { useEffect, useState } from "react";
 import backend from "../services/backend";
 import { Card } from "../components/card/Card";
-import { InfoCard } from "../components/infoCard/InfoCard";
-import { Button, CircularProgress } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { CircularProgress } from "@mui/material";
+import { FormValues } from "../types/types";
+import { ProfileView } from "../components/profileView/ProfileView";
+import { NoProfileData } from "../components/profileView/noPorfileData/NoProfileData";
 
 export const Profile = () => {
-  const [user, setUser] = useState(undefined);
+  const [user, setUser] = useState<FormValues | undefined>();
   const [isLoading, setIsLoading] = useState(false);
-  const navigate = useNavigate();
-
-  const handleRedirection = () => {
-    navigate("/create-user");
-  };
 
   useEffect(() => {
     const fetchUser = async () => {
       setIsLoading(true);
       const data = await backend.getUser();
-      setUser(data as any);
+      setUser(data);
       setIsLoading(false);
     };
 
@@ -29,22 +25,10 @@ export const Profile = () => {
     <Card>
       {isLoading ? (
         <CircularProgress />
+      ) : !user ? (
+        <NoProfileData />
       ) : (
-        !user && (
-          <div>
-            <InfoCard
-              headerText="You don't have any user."
-              contentText="To see the profile, you need to create a user first."
-            />
-            <Button
-              variant="contained"
-              color="primary"
-              onClick={handleRedirection}
-            >
-              Create User
-            </Button>
-          </div>
-        )
+        <ProfileView data={user} />
       )}
     </Card>
   );

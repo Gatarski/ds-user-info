@@ -33,10 +33,10 @@ function App() {
   return (
     <div className={styles["app-container"]}>
       <Header navItems={NAV_ITEMS} />
-      <div className={styles["app-container--content"]}>
+      <div className={styles["app-container__content"]}>
         <Routes>
-          {NAV_ITEMS.map(({ path, name }) => (
-            <Route path={path} Component={getPageComponentByName({ name })} />
+          {NAV_ITEMS.map(({ path, name }, index) => (
+            <Route key={index} path={path} Component={getPageComponentByName({ name })} />
           ))}
         </Routes>
       </div>

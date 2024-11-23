@@ -1,0 +1,15 @@
+.profile-view {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  color: $black;
+  width: 100%;
+  gap: 40px;
+
+  &__element {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+}

@@ -1,3 +1,5 @@
+import { FormValues } from "../types/types";
+
 class Backend {
   private baseUrl: string;
 
@@ -13,7 +15,7 @@ class Backend {
     return response.json();
   };
 
-  getUser = async () => {
+  getUser = async (): Promise<FormValues | undefined> => {
     try {
       // IMPORTANT: We don't have currently backend hence we return data to localstorage
 
@@ -27,7 +29,8 @@ class Backend {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
           const data = localStorage.getItem("user") as string;
-          resolve(JSON.parse(data));
+          const parsedData = JSON.parse(data) as FormValues;
+          resolve(parsedData);
         }, 1000);
       });
     } catch (error: any) {
@@ -35,7 +38,7 @@ class Backend {
     }
   };
 
-  createUser = async (data: any) => {
+  createUser = async (data: FormValues) => {
     try {
       // IMPORTANT: We don't have currently backend hence we add data to localstorage
 
@@ -47,6 +50,7 @@ class Backend {
       // return await this.handleResponse(response);
 
       // We simulate backend delay
+      console.log(data, 'saved DATA')
       return new Promise((resolve, reject) => {
         setTimeout(() => {
           localStorage.setItem("user", JSON.stringify(data));
