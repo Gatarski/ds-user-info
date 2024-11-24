@@ -43,9 +43,12 @@
     img {
       display: none;
     }
-  }
 
-  @media (max-width: 600px) {
-    font-size: $font-size-s;
+    @media (max-width: 600px) {
+      font-size: $font-size-s;
+      @media (max-width: 380px) {
+        font-size: $font-size-xs;
+      }
+    }
   }
 }

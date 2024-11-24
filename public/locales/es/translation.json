@@ -2,7 +2,6 @@
   "header": {
     "profile": "Perfil",
     "createUser": "Crear Usuario",
-    "about": "Acerca de",
     "contact": "Contacto",
     "lang": {
       "english": "Inglés",
@@ -10,10 +9,6 @@
       "German": "Alemán",
       "Spanish": "Español"
     }
-  },
-  "about": {
-    "header": "Página Acerca de",
-    "content": "Esta es una página simple donde puedes crear un usuario y ver su perfil. No tiene backend."
   },
   "profile": {
     "noData": {
@@ -68,5 +63,9 @@
     "en": "Inglés",
     "de": "Alemán",
     "es": "Español"
+  },
+  "notFoundPage": {
+    "header": "Página no encontrada",
+    "content": "Lo sentimos, la página no existe."
   }
 }

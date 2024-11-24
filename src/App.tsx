@@ -1,6 +1,5 @@
 import { Routes, Route } from "react-router-dom";
 import { Profile } from "./pages/Profile";
-import { About } from "./pages/About";
 import { Contact } from "./pages/Contact";
 import { Header } from "./components/header/Header";
 import { NavigationItem, PageComponentName } from "./types/types";
@@ -9,13 +8,13 @@ import { Footer } from "./components/footer/Footer";
 import { CreateUser } from "./pages/CreateUser";
 import styles from "./App.module.scss";
 import { useTranslation } from "react-i18next";
+import { NotFoundPage } from "./components/notFoundPage/NotFoundPage";
 
 const getPageComponentByName = ({ name }: { name: PageComponentName }) => {
   const componentMap = useMemo(
     () => ({
       "Create User": CreateUser,
       Profile,
-      About,
       Contact,
     }),
     []
@@ -39,11 +38,6 @@ function App() {
         displayText: t("header.createUser"),
       },
       {
-        path: "/about",
-        name: "About",
-        displayText: t("header.about"),
-      },
-      {
         path: "/contact",
         name: "Contact",
         displayText: t("header.contact"),
@@ -63,6 +57,7 @@ function App() {
               Component={getPageComponentByName({ name })}
             />
           ))}
+          <Route path="*" Component={NotFoundPage} />
         </Routes>
       </div>
       <Footer />

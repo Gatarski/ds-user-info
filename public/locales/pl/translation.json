@@ -2,7 +2,6 @@
   "header": {
     "profile": "Profil",
     "createUser": "Utwórz użytkownika",
-    "about": "O nas",
     "contact": "Kontakt",
     "lang": {
       "english": "Angielski",
@@ -10,10 +9,6 @@
       "German": "Niemiecki",
       "Spanish": "Hiszpański"
     }
-  },
-  "about": {
-    "header": "Strona O nas",
-    "content": "To jest prosta strona, na której możesz utworzyć użytkownika i zobaczyć jego profil. Brak backendu."
   },
   "profile": {
     "noData": {
@@ -68,5 +63,9 @@
     "en": "Angielski",
     "de": "Niemiecki",
     "es": "Hiszpański"
+  },
+  "notFoundPage": {
+    "header": "Strona nie znaleziona",
+    "content": "Przepraszamy, taka strona nie istnieje."
   }
 }

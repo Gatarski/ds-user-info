@@ -1,4 +1,4 @@
-@use '../../styles/variables.scss' as *;
+@use "../../styles/variables.scss" as *;
 
 .footer {
   background-color: $dark-blue;
@@ -8,6 +8,7 @@
   z-index: 1;
 
   @media (max-width: 1000px) {
+    font-size: $font-size-s;
     padding: 0;
   }
 }
