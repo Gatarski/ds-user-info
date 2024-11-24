@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { FormValues } from "../types/types";
 
 class Backend {
@@ -26,7 +27,7 @@ class Backend {
       // return await this.handleResponse(response);
 
       // We simulate backend delay
-      return new Promise((resolve, reject) => {
+      return new Promise((resolve, _reject) => {
         setTimeout(() => {
           const data = localStorage.getItem("user") as string;
           const parsedData = JSON.parse(data) as FormValues;
@@ -55,7 +56,7 @@ class Backend {
 
       // We simulate backend delay
 
-      return new Promise((resolve, reject) => {
+      return new Promise((resolve, _reject) => {
         setTimeout(() => {
           localStorage.setItem("user", JSON.stringify(data));
           resolve(data);
@@ -69,6 +70,16 @@ class Backend {
       }
     }
   };
+
+  /* 
+    IMPORTANT: This is needed only to disable treeshaking during build as we don't
+    use all vars here because backend is not working. 
+    When backend is done this should be removed.
+  */
+  disableTreeShaking = () => {
+    console.log(this.baseUrl)
+    console.log(this.handleResponse)
+  }
 }
 
 const backend = new Backend("https://no-backend-dummy.com");
