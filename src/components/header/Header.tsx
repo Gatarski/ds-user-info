@@ -12,7 +12,7 @@ export const Header = ({ navItems }: HeaderProps) => {
   const location = useLocation();
   return (
     <header className={styles.header}>
-      <NavLink to="/ds-user-info">
+      <NavLink to="/">
         <img src={logoImage} alt="Page logo image" height={120} width={120} />
       </NavLink>
       <nav>

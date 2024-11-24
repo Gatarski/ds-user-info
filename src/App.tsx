@@ -29,22 +29,22 @@ function App() {
   const navItems = useMemo((): NavigationItem[] => {
     return [
       {
-        path: "/ds-user-info",
+        path: "/",
         name: "Profile",
         displayText: t("header.profile"),
       },
       {
-        path: "/ds-user-info/create-user",
+        path: "/create-user",
         name: "Create User",
         displayText: t("header.createUser"),
       },
       {
-        path: "/ds-user-info/about",
+        path: "/about",
         name: "About",
         displayText: t("header.about"),
       },
       {
-        path: "/ds-user-info/contact",
+        path: "/contact",
         name: "Contact",
         displayText: t("header.contact"),
       },

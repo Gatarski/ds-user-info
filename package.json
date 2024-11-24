@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "author": "Grzegorz Gątarski",
+  "homepage": "https://gatarski.github.io/ds-user-info",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
