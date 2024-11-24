@@ -8,7 +8,7 @@ export const NoProfileData = () => {
   const navigate = useNavigate();
 
   const handleRedirection = () => {
-    navigate("/create-user");
+    navigate("/ds-user-info/create-user");
   };
 
   return (

@@ -90,7 +90,7 @@ export const CreateUserForm = () => {
     const data = await backend.createUser(values);
 
     if (data) {
-      navigate("/");
+      navigate("/ds-user-info");
     }
   };
   const validationSchema = useValidationSchema();

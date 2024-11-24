@@ -15,7 +15,7 @@ i18next
       useSuspense: false,
     },
     backend: {
-      loadPath: "src/translations/{{lng}}/{{ns}}.json",
+      loadPath: "/ds-user-info/locales/{{lng}}/{{ns}}.json",
     },
   });
 
