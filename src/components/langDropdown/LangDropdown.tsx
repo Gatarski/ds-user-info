@@ -33,7 +33,7 @@ const LangDropdown = () => {
 
   return (
     <div className={styles.lang}>
-      <IconButton onClick={handleClick}>
+      <IconButton onClick={handleClick} aria-label={"Select language"}>
         <LanguageIcon className={styles["lang__icon"]} />
       </IconButton>
       <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleClose}>

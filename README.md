@@ -6,8 +6,10 @@ This is simple application written in React + TypeScript.
 
 You need to have installed:
 
-- node
-- npm or yarn
+- node e.g: version: 20.18.0
+- npm e.g: version: 10.18.2
+  or
+- yarn e.g: version: 1.22.19
 
 ## Running on localhost
 
