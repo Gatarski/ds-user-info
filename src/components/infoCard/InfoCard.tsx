@@ -7,7 +7,7 @@ interface InfoCardProps {
 
 export const InfoCard = ({ headerText, contentText }: InfoCardProps) => {
   return (
-    <div className={styles["no-data"]}>
+    <div className={styles["info-card"]}>
       <h1>{headerText}</h1>
       <p>{contentText}</p>
     </div>

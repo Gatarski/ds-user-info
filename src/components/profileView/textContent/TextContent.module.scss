@@ -1,10 +1,12 @@
+@use "../../../styles/variables.scss" as *;
+
 .text-content {
   max-width: 350px;
 
   &__label {
     color: $black;
     text-align: left;
-    font-size: 12px;
+    font-size: $font-size-s;
   }
 
   &__card {

@@ -1,3 +1,5 @@
-.no-data {
+@use "../../styles/variables.scss" as *;
+
+.info-card {
   color: $black;
 }

@@ -1,3 +1,5 @@
+@use "../../styles/variables.scss" as *;
+
 .header {
   width: 100%;
   display: flex;
@@ -5,7 +7,7 @@
   align-items: center;
   background-color: $dark-blue;
   z-index: 1;
-  font-size: 30px;
+  font-size: $font-size-l;
 
   &__nav-list {
     display: flex;
@@ -36,7 +38,7 @@
   }
 
   @media (max-width: 1000px) {
-    font-size: 20px;
+    font-size: $font-size-m;
 
     img {
       display: none;
@@ -44,6 +46,6 @@
   }
 
   @media (max-width: 600px) {
-    font-size: 12px;
+    font-size: $font-size-s;
   }
 }
