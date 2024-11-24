@@ -1,0 +1,72 @@
+{
+  "header": {
+    "profile": "Profile",
+    "createUser": "Create User",
+    "about": "About",
+    "contact": "Contact",
+    "lang": {
+      "english": "English",
+      "polish": "Polish",
+      "German": "German",
+      "Spanish": "Spanish"
+    }
+  },
+  "about": {
+    "header": "About page",
+    "content": "This is simple page where you can create user and see its profile. There is no backend."
+  },
+  "profile": {
+    "noData": {
+      "header": "You don't have any user",
+      "content": "To see the profile, you need to create a user first."
+    },
+    "header": "Your user data",
+    "name": "Name",
+    "aboutYou": "About you",
+    "birthday": "Birthday",
+    "phoneNumber": "Phone number"
+  },
+  "createUser": {
+    "header": "Please fill this form to create user",
+    "inputs": {
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "phone": "Phone",
+      "birthday": "Birthday",
+      "about": "About"
+    },
+    "info": {
+      "header": "Incorrect file",
+      "content": "Maximum file size is 2 MB. Allowed formats: .jpeg, .png, .gif, .webp."
+    }
+  },
+  "buttons": {
+    "goToCreate": "Go to create User",
+    "createUser": "Create User",
+    "chooseAvatar": "Choose Avatar",
+    "close": "Close"
+  },
+  "validations": {
+    "firstNameReq": "First Name is required",
+    "firstNameMin": "First Name must be at least 2 characters",
+    "firstNameMax": "First Name can be max 40 characters",
+    "lastNameMin": "Last Name must be at least 2 characters",
+    "lastNameMax": "Last Name can be max 40 characters",
+    "emailInvalid": "Invalid email address",
+    "emailReq": "Email is required",
+    "emailMax": "Email can be max 50 characters",
+    "phoneReq": "Phone is required",
+    "phoneMax": "Phone can be max 15 numbers",
+    "phoneMin": "Phone must be at least 3 numbers",
+    "birthdayReq": "Birthday is required",
+    "birthdayMax": "Birthdate cannot be in the future",
+    "birthdayMin": "Birthdate cannot be before January 1, 1900",
+    "aboutMax": "About can be max 200 characters"
+  },
+  "lang": {
+    "pl": "Polish",
+    "en": "English",
+    "de": "German",
+    "es": "Spanish"
+  }
+}

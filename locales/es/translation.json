@@ -1,0 +1,72 @@
+{
+  "header": {
+    "profile": "Perfil",
+    "createUser": "Crear Usuario",
+    "about": "Acerca de",
+    "contact": "Contacto",
+    "lang": {
+      "english": "Inglés",
+      "polish": "Polaco",
+      "German": "Alemán",
+      "Spanish": "Español"
+    }
+  },
+  "about": {
+    "header": "Página Acerca de",
+    "content": "Esta es una página simple donde puedes crear un usuario y ver su perfil. No tiene backend."
+  },
+  "profile": {
+    "noData": {
+      "header": "No tienes ningún usuario",
+      "content": "Para ver el perfil, primero debes crear un usuario."
+    },
+    "header": "Datos de tu usuario",
+    "name": "Nombre",
+    "aboutYou": "Acerca de ti",
+    "birthday": "Cumpleaños",
+    "phoneNumber": "Número de teléfono"
+  },
+  "createUser": {
+    "header": "Por favor, completa este formulario para crear un usuario",
+    "inputs": {
+      "firstName": "Nombre",
+      "lastName": "Apellido",
+      "phone": "Teléfono",
+      "birthday": "Cumpleaños",
+      "about": "Acerca de"
+    },
+    "info": {
+      "header": "Archivo incorrecto",
+      "content": "El tamaño máximo del archivo es de 2 MB. Formatos permitidos: .jpeg, .png, .gif, .webp."
+    }
+  },
+  "buttons": {
+    "goToCreate": "Ir a Crear Usuario",
+    "createUser": "Crear Usuario",
+    "chooseAvatar": "Elegir Avatar",
+    "close": "Cerrar"
+  },
+  "validations": {
+    "firstNameReq": "El nombre es obligatorio",
+    "firstNameMin": "El nombre debe tener al menos 2 caracteres",
+    "firstNameMax": "El nombre puede tener un máximo de 40 caracteres",
+    "lastNameMin": "El apellido debe tener al menos 2 caracteres",
+    "lastNameMax": "El apellido puede tener un máximo de 40 caracteres",
+    "emailInvalid": "Dirección de correo electrónico no válida",
+    "emailReq": "El correo electrónico es obligatorio",
+    "emailMax": "El correo electrónico puede tener un máximo de 50 caracteres",
+    "phoneReq": "El teléfono es obligatorio",
+    "phoneMax": "El teléfono puede tener un máximo de 15 dígitos",
+    "phoneMin": "El teléfono debe tener al menos 3 dígitos",
+    "birthdayReq": "El cumpleaños es obligatorio",
+    "birthdayMax": "La fecha de nacimiento no puede estar en el futuro",
+    "birthdayMin": "La fecha de nacimiento no puede ser anterior al 1 de enero de 1900",
+    "aboutMax": "Acerca de puede tener un máximo de 200 caracteres"
+  },
+  "lang": {
+    "pl": "Polaco",
+    "en": "Inglés",
+    "de": "Alemán",
+    "es": "Español"
+  }
+}
