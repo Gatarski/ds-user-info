@@ -6,10 +6,10 @@ This is simple application written in React + TypeScript.
 
 You need to have installed:
 
-- node e.g: version: 20.18.0
-- npm e.g: version: 10.18.2
-  or
-- yarn e.g: version: 1.22.19
+- `node` (version e.g: 20.18.0)
+- `npm` (version e.g: 10.18.2) or `yarn` (version e.g: 1.22.19)
+
+It is recommended to use `yarn` dude to `yarn.lock` in repo.
 
 ## Running on localhost
 

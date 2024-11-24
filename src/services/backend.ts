@@ -33,8 +33,12 @@ class Backend {
           resolve(parsedData);
         }, 1000);
       });
-    } catch (error: any) {
-      console.error(`Error: ${error.message}`);
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        console.error(`Error: ${error.message}`);
+      } else {
+        console.error(`Unexpected error: ${error}`)
+      }
     }
   };
 
@@ -57,8 +61,12 @@ class Backend {
           resolve(data);
         }, 1000);
       });
-    } catch (error: any) {
-      console.error(`Error: ${error.message}`);
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        console.error(`Error: ${error.message}`);
+      } else {
+        console.error(`Unexpected error: ${error}`)
+      }
     }
   };
 }
