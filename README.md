@@ -18,3 +18,13 @@ It is recommended to use `yarn` dude to `yarn.lock` in repo.
 2. On root level type: `npm install` or `yarn install`
 
 3. To launch application type: `yarn run dev` or `npm run dev`
+
+4. Enjoy on `http://localhost:5173/ds-user-info/`
+
+## Deploy
+
+1. Run command `yarn run build`
+
+2. Run command `yarn run deploy`
+
+3. Enyou on `https://gatarski.github.io/ds-user-info`
