@@ -4,7 +4,7 @@ import { CreateUserForm } from "../components/createUserForm/CreateUserForm";
 export const CreateUser = () => {
   return (
     <Card>
-      <CreateUserForm></CreateUserForm>
+      <CreateUserForm />
     </Card>
   );
 };

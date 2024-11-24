@@ -5,7 +5,7 @@ const ALLOWED_IMAGE_TYPES = [
   "image/jpeg",
   "image/png",
   "image/gif",
-  "image/webp"
+  "image/webp",
 ];
 
 export const useModalVisibility = () => {

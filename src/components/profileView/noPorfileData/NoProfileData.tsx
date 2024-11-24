@@ -1,8 +1,10 @@
 import { Button } from "@mui/material";
 import { InfoCard } from "../../infoCard/InfoCard";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export const NoProfileData = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
 
   const handleRedirection = () => {
@@ -12,11 +14,11 @@ export const NoProfileData = () => {
   return (
     <div>
       <InfoCard
-        headerText="You don't have any user."
-        contentText="To see the profile, you need to create a user first."
+        headerText={t("profile.noData.header")}
+        contentText={t("profile.noData.content")}
       />
       <Button variant="contained" color="primary" onClick={handleRedirection}>
-        Create User
+        {t("buttons.goToCreate")}
       </Button>
     </div>
   );

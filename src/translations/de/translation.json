@@ -1,0 +1,72 @@
+{
+  "header": {
+    "profile": "Profil",
+    "createUser": "Benutzer erstellen",
+    "about": "Über uns",
+    "contact": "Kontakt",
+    "lang": {
+      "english": "Englisch",
+      "polish": "Polnisch",
+      "German": "Deutsch",
+      "Spanish": "Spanisch"
+    }
+  },
+  "about": {
+    "header": "Über uns Seite",
+    "content": "Dies ist eine einfache Seite, auf der Sie einen Benutzer erstellen und dessen Profil anzeigen können. Es gibt kein Backend."
+  },
+  "profile": {
+    "noData": {
+      "header": "Sie haben keinen Benutzer",
+      "content": "Um das Profil anzuzeigen, müssen Sie zuerst einen Benutzer erstellen."
+    },
+    "header": "Ihre Benutzerdaten",
+    "name": "Name",
+    "aboutYou": "Über Sie",
+    "birthday": "Geburtstag",
+    "phoneNumber": "Telefonnummer"
+  },
+  "createUser": {
+    "header": "Bitte füllen Sie dieses Formular aus, um einen Benutzer zu erstellen",
+    "inputs": {
+      "firstName": "Vorname",
+      "lastName": "Nachname",
+      "phone": "Telefon",
+      "birthday": "Geburtstag",
+      "about": "Über"
+    },
+    "info": {
+      "header": "Ungültige Datei",
+      "content": "Die maximale Dateigröße beträgt 2 MB. Erlaubte Formate: .jpeg, .png, .gif, .webp."
+    }
+  },
+  "buttons": {
+    "goToCreate": "Zum Benutzer erstellen",
+    "createUser": "Benutzer erstellen",
+    "chooseAvatar": "Avatar auswählen",
+    "close": "Schließen"
+  },
+  "validations": {
+    "firstNameReq": "Vorname ist erforderlich",
+    "firstNameMin": "Der Vorname muss mindestens 2 Zeichen lang sein",
+    "firstNameMax": "Der Vorname darf maximal 40 Zeichen lang sein",
+    "lastNameMin": "Der Nachname muss mindestens 2 Zeichen lang sein",
+    "lastNameMax": "Der Nachname darf maximal 40 Zeichen lang sein",
+    "emailInvalid": "Ungültige E-Mail-Adresse",
+    "emailReq": "E-Mail ist erforderlich",
+    "emailMax": "E-Mail darf maximal 50 Zeichen lang sein",
+    "phoneReq": "Telefon ist erforderlich",
+    "phoneMax": "Telefonnummer darf maximal 15 Ziffern lang sein",
+    "phoneMin": "Telefonnummer muss mindestens 3 Ziffern lang sein",
+    "birthdayReq": "Geburtstag ist erforderlich",
+    "birthdayMax": "Das Geburtsdatum darf nicht in der Zukunft liegen",
+    "birthdayMin": "Das Geburtsdatum darf nicht vor dem 1. Januar 1900 liegen",
+    "aboutMax": "Über darf maximal 200 Zeichen lang sein"
+  },
+  "lang": {
+    "pl": "Polnisch",
+    "en": "Englisch",
+    "de": "Deutsch",
+    "es": "Spanisch"
+  }
+}

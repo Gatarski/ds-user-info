@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import backend from "../services/backend";
 import { Card } from "../components/card/Card";
 import { CircularProgress } from "@mui/material";
@@ -9,7 +9,7 @@ import { NoProfileData } from "../components/profileView/noPorfileData/NoProfile
 export const Profile = () => {
   const [user, setUser] = useState<FormValues | undefined>();
   const [isLoading, setIsLoading] = useState(false);
-
+  console.log('profile')
   useEffect(() => {
     const fetchUser = async () => {
       setIsLoading(true);

@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import logoImage from "../../assets/images/pageLogo.png";
 import { NavigationItem } from "../../types/types";
 import styles from "./Header.module.scss";
+import { MemoizedLangDropdown } from "../langDropdown/LangDropdown";
 
 interface HeaderProps {
   navItems: NavigationItem[];
@@ -15,7 +16,7 @@ export const Header = ({ navItems }: HeaderProps) => {
       </NavLink>
       <nav>
         <ul className={styles["header__nav-list"]}>
-          {navItems.map(({ path, name }, index) => (
+          {navItems.map(({ path, displayText }, index) => (
             <NavLink
               key={index}
               className={({ isActive }) =>
@@ -25,12 +26,12 @@ export const Header = ({ navItems }: HeaderProps) => {
               }
               to={path}
             >
-              {name}
+              {displayText}
             </NavLink>
           ))}
         </ul>
       </nav>
-      <div></div>
+      <MemoizedLangDropdown />
     </header>
   );
 };

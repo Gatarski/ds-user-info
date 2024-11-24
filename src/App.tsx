@@ -8,13 +8,7 @@ import { useMemo } from "react";
 import { Footer } from "./components/footer/Footer";
 import { CreateUser } from "./pages/CreateUser";
 import styles from "./App.module.scss";
-
-const NAV_ITEMS: NavigationItem[] = [
-  { path: "/", name: "Profile" },
-  { path: "/create-user", name: "Create User" },
-  { path: "/about", name: "About" },
-  { path: "/contact", name: "Contact" },
-];
+import { useTranslation } from "react-i18next";
 
 const getPageComponentByName = ({ name }: { name: PageComponentName }) => {
   const componentMap = useMemo(
@@ -30,13 +24,32 @@ const getPageComponentByName = ({ name }: { name: PageComponentName }) => {
 };
 
 function App() {
+  const { t } = useTranslation();
+
+  const navItems = useMemo((): NavigationItem[] => {
+    return [
+      { path: "/", name: "Profile", displayText: t("header.profile") },
+      {
+        path: "/create-user",
+        name: "Create User",
+        displayText: t("header.createUser"),
+      },
+      { path: "/about", name: "About", displayText: t("header.about") },
+      { path: "/contact", name: "Contact", displayText: t("header.contact") },
+    ];
+  }, [t]);
+
   return (
     <div className={styles["app-container"]}>
-      <Header navItems={NAV_ITEMS} />
+      <Header navItems={navItems} />
       <div className={styles["app-container__content"]}>
         <Routes>
-          {NAV_ITEMS.map(({ path, name }, index) => (
-            <Route key={index} path={path} Component={getPageComponentByName({ name })} />
+          {navItems.map(({ path, name }, index) => (
+            <Route
+              key={index}
+              path={path}
+              Component={getPageComponentByName({ name })}
+            />
           ))}
         </Routes>
       </div>

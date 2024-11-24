@@ -7,6 +7,8 @@ import {
   Divider,
 } from "@mui/material";
 import styles from "./InfoDialog.module.scss";
+import { useTranslation } from "react-i18next";
+import { memo } from "react";
 
 interface InfoDialogProps {
   isOpen: boolean;
@@ -15,12 +17,14 @@ interface InfoDialogProps {
   contentText: string;
 }
 
-export const InfoDialog = ({
+const InfoDialog = ({
   isOpen,
   hideDialog,
   headerText,
   contentText,
 }: InfoDialogProps) => {
+  const { t } = useTranslation();
+
   return (
     <Dialog open={isOpen} onClose={hideDialog}>
       <DialogTitle className={styles["info-dialog__header"]}>
@@ -38,9 +42,11 @@ export const InfoDialog = ({
           color="primary"
           variant="contained"
         >
-          Close
+          {t("buttons.close")}
         </Button>
       </DialogActions>
     </Dialog>
   );
 };
+
+export const MemoizedInfoDialog = memo(InfoDialog);

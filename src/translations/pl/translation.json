@@ -1,0 +1,72 @@
+{
+  "header": {
+    "profile": "Profil",
+    "createUser": "Utwórz użytkownika",
+    "about": "O nas",
+    "contact": "Kontakt",
+    "lang": {
+      "english": "Angielski",
+      "polish": "Polski",
+      "German": "Niemiecki",
+      "Spanish": "Hiszpański"
+    }
+  },
+  "about": {
+    "header": "Strona O nas",
+    "content": "To jest prosta strona, na której możesz utworzyć użytkownika i zobaczyć jego profil. Brak backendu."
+  },
+  "profile": {
+    "noData": {
+      "header": "Nie masz żadnego użytkownika",
+      "content": "Aby zobaczyć profil, musisz najpierw utworzyć użytkownika."
+    },
+    "header": "Dane twojego użytkownika",
+    "name": "Imię",
+    "aboutYou": "O Tobie",
+    "birthday": "Data urodzenia",
+    "phoneNumber": "Numer telefonu"
+  },
+  "createUser": {
+    "header": "Wypełnij ten formularz, aby utworzyć użytkownika",
+    "inputs": {
+      "firstName": "Imię",
+      "lastName": "Nazwisko",
+      "phone": "Telefon",
+      "birthday": "Data urodzenia",
+      "about": "O Tobie"
+    },
+    "info": {
+      "header": "Nieprawidłowy plik",
+      "content": "Maksymalny rozmiar pliku to 2 MB. Dozwolone formaty: .jpeg, .png, .gif, .webp."
+    }
+  },
+  "buttons": {
+    "goToCreate": "Przejdź do tworzenia użytkownika",
+    "createUser": "Utwórz użytkownika",
+    "chooseAvatar": "Wybierz Avatar",
+    "close": "Zamknij"
+  },
+  "validations": {
+    "firstNameReq": "Imię jest wymagane",
+    "firstNameMin": "Imię musi mieć co najmniej 2 znaki",
+    "firstNameMax": "Imię może mieć maksymalnie 40 znaków",
+    "lastNameMin": "Nazwisko musi mieć co najmniej 2 znaki",
+    "lastNameMax": "Nazwisko może mieć maksymalnie 40 znaków",
+    "emailInvalid": "Nieprawidłowy adres e-mail",
+    "emailReq": "E-mail jest wymagany",
+    "emailMax": "E-mail może mieć maksymalnie 50 znaków",
+    "phoneReq": "Numer telefonu jest wymagany",
+    "phoneMax": "Numer telefonu może mieć maksymalnie 15 cyfr",
+    "phoneMin": "Numer telefonu musi mieć co najmniej 3 cyfry",
+    "birthdayReq": "Data urodzenia jest wymagana",
+    "birthdayMax": "Data urodzenia nie może być w przyszłości",
+    "birthdayMin": "Data urodzenia nie może być wcześniejsza niż 1 stycznia 1900",
+    "aboutMax": "O Tobie może mieć maksymalnie 200 znaków"
+  },
+  "lang": {
+    "pl": "Polski",
+    "en": "Angielski",
+    "de": "Niemiecki",
+    "es": "Hiszpański"
+  }
+}

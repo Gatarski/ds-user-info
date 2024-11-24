@@ -9,68 +9,11 @@ import styles from "./CreateUserForm.module.scss";
 import * as Yup from "yup";
 import backend from "../../services/backend";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
-import { InfoDialog } from "../InfoDialog/InfoDialog";
+import { useCallback, useMemo, useState } from "react";
+import { MemoizedInfoDialog } from "../InfoDialog/InfoDialog";
 import { useModalVisibility, isAvatarImageNotCorrect } from "../../utils/utils";
-import { FormValues } from "../../types/types";
-
-type InputSchema = {
-  name: string;
-  label: string;
-  type: "string" | "number" | "date";
-  placeholder?: string;
-};
-
-const INPUTS_SCHEMA: InputSchema[] = [
-  {
-    name: "firstName",
-    label: "First Name",
-    type: "string",
-    placeholder: "e.g: John",
-  },
-  {
-    name: "lastName",
-    label: "Last Name",
-    type: "string",
-    placeholder: "e.g: Doe",
-  },
-  {
-    name: "email",
-    label: "Email",
-    type: "string",
-    placeholder: "e.g: test@dummy.com",
-  },
-  {
-    name: "phone",
-    label: "Phone",
-    type: "number",
-    placeholder: "e.g: 48 123 123 123",
-  },
-  { name: "date", label: "Birthday", type: "date" },
-];
-
-const validationSchema = Yup.object({
-  firstName: Yup.string()
-    .required("First Name is required")
-    .min(2, "First Name must be at least 2 characters")
-    .max(40, "First Name can be max 40 characters"),
-  lastName: Yup.string()
-    .min(2, "Last Name must be at least 2 characters")
-    .max(40, "Last Name can be max 40 characters"),
-  email: Yup.string()
-    .email("Invalid email address")
-    .required("Email is required")
-    .max(50, "Email can be max 50 characters"),
-  phone: Yup.string()
-    .required("Phone is required")
-    .min(3, "Phone must be at least 3 numbers")
-    .max(15, "Phone can be max 15 numbers"),
-  date: Yup.date()
-    .required("Birthday is required")
-    .max(new Date(), "Birthdate cannot be in the future")
-    .min(new Date("1900-01-01"), "Birthdate cannot be before January 1, 1900"),
-  about: Yup.string().max(200, "About can be max 200 characters"),
-});
+import { FormValues, InputItem } from "../../types/types";
+import { useTranslation } from "react-i18next";
 
 const initialValues: FormValues = {
   firstName: "",
@@ -84,8 +27,64 @@ const initialValues: FormValues = {
 
 export const CreateUserForm = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [avatarPreview, setAvatarPreview] = useState<string | null>(null);
   const { isVisible, hideModal, showModal } = useModalVisibility();
+
+  const inputsSchema: InputItem[] = useMemo(() => {
+    return [
+      {
+        name: "firstName",
+        label: t("createUser.inputs.firstName"),
+        type: "string",
+        placeholder: "e.g: John",
+      },
+      {
+        name: "lastName",
+        label: t("createUser.inputs.lastName"),
+        type: "string",
+        placeholder: "e.g: Doe",
+      },
+      {
+        name: "email",
+        label: "Email",
+        type: "string",
+        placeholder: "e.g: test@dummy.com",
+      },
+      {
+        name: "phone",
+        label: t("createUser.inputs.phone"),
+        type: "number",
+        placeholder: "e.g: 48 123 123 123",
+      },
+      { name: "date", label: t("createUser.inputs.birthday"), type: "date" },
+    ];
+  }, [t]);
+
+  const useValidationSchema = useCallback(() => {
+    return Yup.object({
+      firstName: Yup.string()
+        .required(t("validations.firstNameReq"))
+        .min(2, t("validations.firstNameMin"))
+        .max(40, t("validations.firstNameMax")),
+      lastName: Yup.string()
+        .min(2, t("validations.lastNameMin"))
+        .max(40, t("validations.lastNameMin")),
+      email: Yup.string()
+        .email(t("validations.emailInvalid"))
+        .required(t("validations.emailReq"))
+        .max(50, "validations.emailMax"),
+      phone: Yup.string()
+        .required(t("validations.phoneReq"))
+        .min(3, t("validations.phoneMin"))
+        .max(15, t("validations.phoneMax")),
+      date: Yup.date()
+        .required(t("validations.birthdayReq"))
+        .max(new Date(), t("validations.birthdayMax"))
+        .min(new Date("1900-01-01"), t("validations.birthdayMin")),
+      about: Yup.string().max(200, t("validations.aboutMax")),
+    });
+  }, [t]);
 
   const submitForm = async (values: FormValues) => {
     const data = await backend.createUser(values);
@@ -94,6 +93,7 @@ export const CreateUserForm = () => {
       navigate("/");
     }
   };
+  const validationSchema = useValidationSchema();
 
   return (
     <Formik
@@ -106,8 +106,8 @@ export const CreateUserForm = () => {
           <CircularProgress />
         ) : (
           <Form className={styles["create-user-form"]}>
-            <h2>Please fill this form to create user.</h2>
-            {INPUTS_SCHEMA.map(({ name, label, type, placeholder }, index) => {
+            <h2>{t("createUser.header")}</h2>
+            {inputsSchema.map(({ name, label, type, placeholder }, index) => {
               const nameAsKey = name as keyof FormValues;
               return (
                 <Field
@@ -132,7 +132,7 @@ export const CreateUserForm = () => {
               placeholder="e.g.: My name is John Doe. I like trains."
               as={TextField}
               name="about"
-              label="About"
+              label={t("createUser.inputs.about")}
               fullWidth
               multiline
               type={"string"}
@@ -173,7 +173,7 @@ export const CreateUserForm = () => {
               />
               <label htmlFor="image-upload">
                 <Button fullWidth variant="outlined" component="span">
-                  Choose Avatar
+                  {t("buttons.chooseAvatar")}
                 </Button>
               </label>
               {avatarPreview && (
@@ -193,12 +193,12 @@ export const CreateUserForm = () => {
               color="primary"
               disabled={!isValid}
             >
-              Create user
+              {t("buttons.createUser")}
             </Button>
-            <InfoDialog
-              headerText="Incorrect file"
+            <MemoizedInfoDialog
+              headerText={t("createUser.info.header")}
               isOpen={isVisible}
-              contentText="Maximum file size is 2 MB. Allowed formats: .jpeg, .png, .gif, .webp."
+              contentText={t("createUser.info.content")}
               hideDialog={hideModal}
             />
           </Form>
