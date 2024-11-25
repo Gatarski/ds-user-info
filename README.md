@@ -21,7 +21,9 @@ It is recommended to use `yarn` due to `yarn.lock` in repo.
 
 4. Enjoy on `http://localhost:5173/ds-user-info/`
 
-## Deploy
+## Deploy on production
+IMPORTANT: For deploy you need access repository on which page is built. These 
+are steps which author made to deploy application.
 
 1. Run command `yarn run build`
 
