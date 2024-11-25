@@ -27,4 +27,4 @@ It is recommended to use `yarn` due to `yarn.lock` in repo.
 
 2. Run command `yarn run deploy`
 
-3. Enyou on `https://gatarski.github.io/ds-user-info`
+3. Enjoy on `https://gatarski.github.io/ds-user-info`
